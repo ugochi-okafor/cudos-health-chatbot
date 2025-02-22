@@ -1,0 +1,46 @@
+import os
+import telebot
+import json
+from dotenv import load_dotenv
+from module.findmatch import FindMatch
+from module.llm import create_chat_llm
+
+load_dotenv(".env")
+
+index_file = "Index.index"
+model_name = "paraphrase-MiniLM-L6-v2"
+df_file = "data.csv"
+
+match_finder = FindMatch(index_file, 
+						 model_name, 
+						 df_file, 
+						 "Original Question", 
+						 "Rephrased Variants")
+
+BOT_TOKEN = os.environ.get('BOT_TOKEN')
+
+bot = telebot.TeleBot(BOT_TOKEN)
+
+
+if __name__ == '__main__':
+    llm = create_chat_llm()
+
+    print("Starting Telegram Bot")
+
+    @bot.message_handler(commands=['start', 'hello'])
+    def send_welcome(message):
+        bot.reply_to(message, "Howdy, how are you doing?")
+
+    @bot.message_handler(func=lambda msg: True)
+    def echo_all(message):
+        # print(message.text)
+        match = match_finder.find_match(message.text, 1); print(match)
+        if len(match) != 0:
+            prompt = f"You are a health based chat bot. Combine this responses:  ["+ ", ".join(match) +  f"] \nTo answer this question: {message.text}."
+            # # print(prompt)
+            response = llm.complete(prompt)
+        else:
+            response = f"I don't have a response to this in my database";
+        bot.reply_to(message, str(response))
+
+    bot.infinity_polling()
