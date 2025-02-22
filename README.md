@@ -33,7 +33,7 @@ HealthBot is a Telegram chatbot built with Python, utilizing the Telegram Bot AP
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/healthbot.git
+git clone https://github.com/ugochi-okafor/cudos-health-chatbot/
 cd healthbot
 ```
 
