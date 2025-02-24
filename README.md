@@ -114,7 +114,7 @@ sudo apt update
 ### Step 4: Clone the GitHub Repository
 
 ```bash
-git clone repo_path  # Update with the actual repository path
+git clone https://github.com/ugochi-okafor/cudos-health-chatbot/
 ```
 
 ### Step 5: Install pip
