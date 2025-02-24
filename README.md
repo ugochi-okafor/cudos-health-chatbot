@@ -7,9 +7,9 @@ HealthBot is a Telegram chatbot designed to provide health-related information a
 1. [Introduction](#introduction)
 2. [Features](#features)
 3. [Installation](#installation)
-4. [Set Up Telegram Bot Token](#Set Up Telegram Bot Token)
+4. [Set Up Telegram Bot Token](#set-up-telegram-bot-token)
 5. [Usage](#usage)
-6. [How It Works](#How It Works)
+6. [How It Works](#how-it-works)
 
 ## Introduction
 
