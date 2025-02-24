@@ -57,17 +57,11 @@ TELEGRAM_API_TOKEN=your-bot-token-here
 Once you've set up the bot, you can start it by running:
 
 ```bash
-python healthbot.py
+python main.py
 ```
 
 The bot will start interacting with users on Telegram.
 
-### Example Commands
-
-- `/start` - Welcome message and bot introduction.
-- `/healthtips` - Get daily health tips.
-- `/symptoms [symptom]` - Get information about specific symptoms.
-- `/ask [question]` - Ask health-related questions.
 
 ## How It Works
 HealthBot works by using the Telegram Bot API to receive user input, process the query using Natural Language Processing (NLP), and then provide relevant information. Here’s a breakdown of how the bot operates:
